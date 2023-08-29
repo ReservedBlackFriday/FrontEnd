@@ -14,7 +14,7 @@ const HomeBF = (props) => {
       .get(getListURL)
       .then(function (response) {
         // 성공한 경우 실행
-        console.log(response);
+        console.log(response.data.product_list);
         setProductList(response.data.product_list);
       })
       .catch(function (error) {
@@ -27,12 +27,15 @@ const HomeBF = (props) => {
       <div className={style.entireContainer}>
         <BFEventBanner />
         {!productList ? null : (
-          <div>
+          <div className={style.productListContainer}>
             {productList.map((product, idx) => {
-              <SmallItemCard
-                productName={product.productId.name}
-                productPrice={product.productId.price}
-              />;
+              return (
+                <SmallItemCard
+                  productName={product.productId.name}
+                  productPrice={product.productId.price}
+                  key={idx}
+                />
+              );
             })}
           </div>
         )}

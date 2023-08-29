@@ -16,6 +16,7 @@ const BFEventBanner = () => {
               <div
                 className={style.date}
                 style={{ color: "green", fontSize: "2rem" }}
+                key={idx}
               >
                 {date}
               </div>
