@@ -1,0 +1,69 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+.entireContainer {
+  width: 100%;
+  height: 350px;
+
+  background-color: rgb(41, 40, 40);
+  border-radius: 30px;
+
+  position: relative;
+}
+
+.title {
+  font-family: "pretendard", Arial, Helvetica, sans-serif;
+  font-size: 3rem;
+  font-weight: bolder;
+
+  color: #eee;
+
+  position: absolute;
+
+  top: 30px;
+  left: 50px;
+}
+
+.subTitle {
+  font-family: "pretendard", Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+
+  color: #eee;
+
+  position: absolute;
+
+  top: 150px;
+  left: 50px;
+}
+
+.dateContainer {
+  width: 400px;
+  height: 150px;
+
+  background-color: #eee;
+
+  border-radius: 20px;
+
+  position: absolute;
+
+  right: 30px;
+  bottom: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "pretendard", Arial, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.date {
+  padding: 0 15px;
+
+  border-right: 5px solid black;
+}
+
+.date:last-child {
+  border-right: none;
+}

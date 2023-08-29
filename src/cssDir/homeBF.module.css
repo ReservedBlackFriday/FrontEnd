@@ -1,5 +1,19 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
 .entireContainer {
   width: 1240px;
-  margin: 0 auto;
+  margin: 130px auto 30px auto;
+  position: relative;
+}
+
+.eventContainer {
+  width: 100%;
+  height: 400px;
+
+  margin: 130px auto 30px auto;
+
+  background-color: rgb(16, 16, 16);
+  border-radius: 30px;
+
   position: relative;
 }
