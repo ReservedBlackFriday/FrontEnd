@@ -11,6 +11,18 @@ import SignUp from "./pageDir/SignUp";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  useEffect(()=>{
+    const userId = sessionStorage.getItem("id");
+    if(userId !== null){
+      console.log("login")
+      setIsLogin(true)
+    }
+    else if(isLogin){
+      console.log('non login')
+      alert("로그인을 해주세요.")
+      setIsLogin(false)
+    }
+  },[])
 
   return (
     <div>

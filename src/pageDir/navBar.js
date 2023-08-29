@@ -18,6 +18,7 @@ const NavBar = (props) => {
     }
     const goLogin = () =>{
         if(isLogin){
+            sessionStorage.removeItem("id")
             alert('로그아웃 되었습니다.')
             props.setIsLogin(false)
         }

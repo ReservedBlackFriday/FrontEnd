@@ -1,7 +1,22 @@
 .entireContainer {
   width: 1240px;
-  margin: 130px auto 0 auto;
+  margin: 100px auto 0 auto;
   position: relative;
+}
+
+.bfApplyBtn{
+  width: 100%;
+  height: 80px;
+  border: 2px solid black;
+  outline: none;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-size: 30px;
+}
+.bfApplyBtn:hover{
+  background-color: white;
+  color: black;
 }
 
 .cardContainer {

@@ -7,6 +7,7 @@ const Login = (props) => {
   let [id, setId] = useState("");
   let [pw, setPw] = useState("");
   const movePage = useNavigate();
+  let sessionStorage = window.sessionStorage;
 
   const changeId = (e) => {
     const value = e.target.value;
@@ -43,6 +44,7 @@ const Login = (props) => {
         console.log(response)
           if (response.status === 200) {
               console.log('로그인 성공')
+              sessionStorage.setItem("id", id);
               props.setIsLogin(true)
               goHome()
           } else {
