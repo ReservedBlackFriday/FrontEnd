@@ -23,8 +23,7 @@ const Login = (props) =>{
     const login = (e) =>{
         e.preventDefault()
         props.setIsLogin(true)
-        
-        //goHome()
+        goHome()
     }
     // const login = (e) => {
     //     e.preventDefault()

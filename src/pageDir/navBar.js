@@ -19,7 +19,7 @@ const NavBar = (props) => {
     const goLogin = () =>{
         if(isLogin){
             alert('로그아웃 되었습니다.')
-            setIsLogin(false)
+            props.setIsLogin(false)
         }
         movePage('/login')
     }

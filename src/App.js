@@ -13,7 +13,7 @@ function App() {
   
   return (
     <div>
-      <NavBar isLogin={isLogin}></NavBar>
+      <NavBar isLogin={isLogin} setIsLogin={setIsLogin}></NavBar>
       <Routes>
         <Route path="/" element={<HomeBF/>}></Route>
         <Route path="/beforeBF" element={<HomeBeforeBF/>}></Route>
