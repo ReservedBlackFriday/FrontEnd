@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Login = (props) => {
+const SignUp = (props) => {
   let [id, setId] = useState("");
   let [pw, setPw] = useState("");
   const movePage = useNavigate();
@@ -16,13 +16,10 @@ const Login = (props) => {
     const value = e.target.value;
     setPw(value);
   };
-  const goHome = () => {
-    movePage("/");
+  const goLogin = () => {
+    movePage("/login");
   };
-  const goSignUp = () => {
-    movePage("/signUp");
-  };
-  const login = (e) => {
+  const signup = (e) => {
       e.preventDefault()
       setId()
       if (id === '') {
@@ -38,21 +35,21 @@ const Login = (props) => {
         'password' : pw
     };
     const config = {"Content-Type": 'application/json'};
-      axios.post('http://210.123.135.176:5555/users/login', data, config)
+      axios.post('http://210.123.135.176:5555/users/signup', data, config)
       .then((response) => {
         console.log(response)
-          if (response.status === 200) {
-              console.log('로그인 성공')
-              props.setIsLogin(true)
-              goHome()
+          if (response.status === 201) {
+              console.log('회원가입 성공')
+              alert('회원가입 성공')
+              goLogin()
           } else {
-              console.log('로그인 실패')
+              console.log('회원가입 실패')
           }
       })
       .catch(error => {
           console.error(error)
-          console.log('로그인 실패')
-          alert('로그인 실패\n이메일과 비밀번호를 확인해 주세요.')
+          console.log('회원가입 실패')
+          alert(error.response.data.message)
       });
   }
 
@@ -61,7 +58,7 @@ const Login = (props) => {
       <div className={styles.loginPage}>
         <div className={styles.loginWrap}>
           <div className={styles.loginBox}>
-            <h1 className={styles.loginHeader}>LogIn</h1>
+            <h1 className={styles.loginHeader}>SignUp</h1>
             <div className={styles.loginInputForm}>
               <form name="login_form" id="login_form" method="post">
                 <div className={styles.loginSector}>
@@ -83,13 +80,13 @@ const Login = (props) => {
                   <span className={styles.loginPlaceholder}>Password</span>
                 </div>
                 <div className={styles.loginBtnWrap}>
-                  <button className={styles.loginBtn} onClick={login}>
+                  <button className={styles.doSignUpBtn} onClick={signup}>
                     SignIn
                   </button>
                 </div>
               </form>
               <div className={styles.loginBtnWrap}>
-                <button className={styles.signUpBtn} onClick={goSignUp}>SignUp</button>
+                <button className={styles.cancleBtn}>cancle</button>
               </div>
             </div>
           </div>
@@ -98,4 +95,4 @@ const Login = (props) => {
     </div>
   );
 };
-export default Login;
+export default SignUp;
