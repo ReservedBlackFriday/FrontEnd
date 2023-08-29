@@ -40,12 +40,15 @@
 ::-webkit-scrollbar{
   width: 5px;
   height: 3px;
+  z-index: 10;
 }
 ::-webkit-scrollbar-thumb{
   background-color: rgb(109,162, 233);
   border-radius: 100px;
+  z-index: 10;
 }
 ::-webkit-scrollbar-track{
   background-color: transparent;
   display: none;
+  z-index: 10;
 }
