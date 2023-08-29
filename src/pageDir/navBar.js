@@ -1,4 +1,4 @@
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 import styles from '../cssDir/navBar.module.css';
 import noMessage from '../imgs/noMessage.png';
 import noMessageHover from '../imgs/noMessage_hover.png';
@@ -20,12 +20,12 @@ const NavBar = (props) => {
             <div className={styles.leftDiv}>
                 <ul className={styles.navList}>
                     <li className={styles.navListItem}>
-                        <a className={styles.navListItemText}>
+                        <Link className={styles.navListItemText}>
                             <form name='search' id='search_form' method='get'>
                                 <input type='text' minLength="1" id='searchInput' className={styles.searchInput}
                                     placeholder='검색' name='search'></input>
                             </form>
-                        </a>
+                        </Link>
                         <button type='submit' form='search_form' id='searchBtn'
                             className={styles.searchInputBtn}></button>
                     </li>
@@ -38,12 +38,12 @@ const NavBar = (props) => {
             <div className={styles.rightDiv}>
                 <ul className={styles.navList}>
                     {isLogin ? <li className={styles.navListItem}>
-                        <a className={styles.navListItemText}>
+                        <Link className={styles.navListItemText}>
                             <div className={styles.imgBox}>
                                 <img src={noMessage} width={60} height={80} className={styles.noMessageImg}></img>
                                 <img src={noMessageHover} width={60} height={80} className={styles.noMessageHoverImg}></img>
                             </div>
-                        </a>
+                        </Link>
                     </li> : <></>}
                     {/* <li className={styles.navListItem}>
                         <a className={styles.navListItemText}>
@@ -54,9 +54,9 @@ const NavBar = (props) => {
                         </a>
                     </li> */}
                     {isLogin ? <li className={styles.navListItem}>
-                        <a className={styles.navListItemText}>
+                        <Link className={styles.navListItemText}>
                             <span>myPage</span>
-                        </a>
+                        </Link>
                     </li>:<></>}
                     {/* <li className={styles.navListItem}>
                         <a className={styles.navListItemText}>
@@ -64,9 +64,9 @@ const NavBar = (props) => {
                         </a>
                     </li> */}
                     <li className={styles.navListItem}>
-                        <a className={`${styles.navListItemText} ${styles.lastNavListItemText}`}>
+                        <Link className={`${styles.navListItemText} ${styles.lastNavListItemText}`}>
                             {isLogin ? <span>logout</span> : <span>login</span>}
-                        </a>
+                        </Link>
                     </li>
                     {/* <li className={styles.navListItem}>
                         <a className={styles.navListItemText}>

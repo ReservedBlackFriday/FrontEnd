@@ -1,5 +1,12 @@
 import styles from '../cssDir/login.module.css';
+//import axios from "axios";
+import { useState, useEffect } from "react";
+
 const Login = (props) =>{
+    let [id, setId] = useState('');
+    let [pw, setPw] = useState('');
+    //const movePage = useNavigate();
+
     return(
         <div className={styles.page}>
             <div className={styles.loginPage}>
