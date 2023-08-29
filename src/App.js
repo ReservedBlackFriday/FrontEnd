@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ApplyGroup from "./pageDir/ApplyGroup";
 import SignUp from "./pageDir/SignUp";
+import BFProductDetail from "./components/BFProductDetail";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -22,8 +23,9 @@ function App() {
           path="/login"
           element={<Login setIsLogin={setIsLogin} />}
         ></Route>
-        <Route path="/signUp" element={<SignUp/>}></Route>
+        <Route path="/signUp" element={<SignUp />}></Route>
         <Route path="/applyGroup" element={<ApplyGroup />}></Route>
+        <Route path="/productDetail/:id" element={<BFProductDetail />}></Route>
       </Routes>
     </div>
     // <div className="App">

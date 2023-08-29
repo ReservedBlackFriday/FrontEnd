@@ -4,7 +4,7 @@ import { FcApproval } from "react-icons/fc";
 import dayjs from "dayjs";
 
 const BFEventBanner = () => {
-  const dateList = ["8/30", "8/31", "9/1", "9/2", "9/3"];
+  const dateList = ["8/28", "8/29", "8/30", "8/31", "9/1"];
   return (
     <div className={style.entireContainer}>
       <div className={style.title}>Black Friday</div>

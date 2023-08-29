@@ -1,74 +1,103 @@
-import {useNavigate, Link} from 'react-router-dom'
-import styles from '../cssDir/navBar.module.css';
-import noMessage from '../imgs/noMessage.png';
-import noMessageHover from '../imgs/noMessage_hover.png';
-import message from '../imgs/message.png';
-import React, {useEffect, useState} from 'react';
+import { useNavigate, Link } from "react-router-dom";
+import styles from "../cssDir/NavBar.module.css";
+import noMessage from "../imgs/noMessage.png";
+import noMessageHover from "../imgs/noMessage_hover.png";
+import message from "../imgs/message.png";
+import React, { useEffect, useState } from "react";
 
 const NavBar = (props) => {
-    const [isLogin, setIsLogin] = useState(false);
-    const movePage = useNavigate()
+  const [isLogin, setIsLogin] = useState(false);
+  const movePage = useNavigate();
 
-    useEffect(() => {
-    	setIsLogin(props.isLogin);
-    }, [props.isLogin]);
-    
-    const goHome = () => {
-        movePage('/')
+  useEffect(() => {
+    setIsLogin(props.isLogin);
+  }, [props.isLogin]);
+
+  const goHome = () => {
+    movePage("/");
+  };
+  const goLogin = () => {
+    if (isLogin) {
+      alert("로그아웃 되었습니다.");
+      props.setIsLogin(false);
     }
-    const goLogin = () =>{
-        if(isLogin){
-            alert('로그아웃 되었습니다.')
-            props.setIsLogin(false)
-        }
-        movePage('/login')
-    }
-    return(
-        <div className={styles.navBar}>
-            <div className={styles.logoDiv} onClick={goHome}>
-                <h1 className={styles.logo}>logo</h1>
+    movePage("/login");
+  };
+  return (
+    <div className={styles.navBar}>
+      <div className={styles.logoDiv} onClick={goHome}>
+        <h1 className={styles.logo}>logo</h1>
+      </div>
+      <div className={styles.leftDiv}>
+        <ul className={styles.navList}>
+          <li className={styles.navListItem}>
+            <div className={styles.navListItemText}>
+              <form name="search" id="search_form" method="get">
+                <input
+                  type="text"
+                  minLength="1"
+                  id="searchInput"
+                  className={styles.searchInput}
+                  placeholder="검색"
+                  name="search"
+                ></input>
+              </form>
             </div>
-            <div className={styles.leftDiv}>
-                <ul className={styles.navList}>
-                    <li className={styles.navListItem}>
-                        <div className={styles.navListItemText}>
-                            <form name='search' id='search_form' method='get'>
-                                <input type='text' minLength="1" id='searchInput' className={styles.searchInput}
-                                    placeholder='검색' name='search'></input>
-                            </form>
-                        </div>
-                        <button type='submit' form='search_form' id='searchBtn'
-                            className={styles.searchInputBtn}></button>
-                    </li>
-                </ul>
+            <button
+              type="submit"
+              form="search_form"
+              id="searchBtn"
+              className={styles.searchInputBtn}
+            ></button>
+          </li>
+        </ul>
+      </div>
+
+      <div></div>
+      <div className={styles.rightDiv}>
+        <ul className={styles.navList}>
+          {isLogin ? (
+            <li className={styles.navListItem}>
+              <div className={styles.navListItemText}>
+                <div className={styles.imgBox}>
+                  <img
+                    src={noMessage}
+                    width={60}
+                    height={80}
+                    className={styles.noMessageImg}
+                  ></img>
+                  <img
+                    src={noMessageHover}
+                    width={60}
+                    height={80}
+                    className={styles.noMessageHoverImg}
+                  ></img>
+                </div>
+              </div>
+            </li>
+          ) : (
+            <></>
+          )}
+          {isLogin ? (
+            <li className={styles.navListItem}>
+              <div className={styles.navListItemText}>
+                <span>myPage</span>
+              </div>
+            </li>
+          ) : (
+            <></>
+          )}
+          <li className={styles.navListItem}>
+            <div
+              className={`${styles.navListItemText} ${styles.lastNavListItemText}`}
+              onClick={goLogin}
+            >
+              {isLogin ? <span>logout</span> : <span>login</span>}
             </div>
-            
-            <div>
-                
-            </div>
-            <div className={styles.rightDiv}>
-                <ul className={styles.navList}>
-                    {isLogin ? <li className={styles.navListItem}>
-                        <div className={styles.navListItemText}>
-                            <div className={styles.imgBox}>
-                                <img src={noMessage} width={60} height={80} className={styles.noMessageImg}></img>
-                                <img src={noMessageHover} width={60} height={80} className={styles.noMessageHoverImg}></img>
-                            </div>
-                        </div>
-                    </li> : <></>}
-                    {isLogin ? <li className={styles.navListItem}>
-                        <div className={styles.navListItemText}>
-                            <span>myPage</span>
-                        </div>
-                    </li>:<></>}
-                    <li className={styles.navListItem}>
-                        <div className={`${styles.navListItemText} ${styles.lastNavListItemText}`} onClick={goLogin}>
-                            {isLogin ? <span>logout</span> : <span>login</span>}
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    )
-}
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
 export default NavBar;

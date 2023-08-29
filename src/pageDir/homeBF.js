@@ -4,10 +4,14 @@ import SmallItemCard from "../components/SmallItemCard";
 import style from "../cssDir/homeBF.module.css";
 import axios from "axios";
 import BFEventBanner from "../components/BFEventBanner";
+import BFProductDetail from "../components/BFProductDetail";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomeBF = (props) => {
   const getListURL = "http://210.123.135.176:5555/product/black_friday/list";
   const [productList, setProductList] = useState();
+
+  const movePage = useNavigate();
 
   useEffect(() => {
     axios
@@ -30,11 +34,17 @@ const HomeBF = (props) => {
           <div className={style.productListContainer}>
             {productList.map((product, idx) => {
               return (
-                <SmallItemCard
-                  productName={product.productId.name}
-                  productPrice={product.productId.price}
-                  key={idx}
-                />
+                <div
+                  onClick={() => {
+                    movePage(`productDetail/${product._id}`);
+                  }}
+                >
+                  <SmallItemCard
+                    productName={product.productId.name}
+                    productPrice={product.productId.price}
+                    key={idx}
+                  />
+                </div>
               );
             })}
           </div>
