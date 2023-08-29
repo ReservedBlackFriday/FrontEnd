@@ -5,16 +5,22 @@ import Login from "./pageDir/Login";
 import HomeBF from "./pageDir/HomeBF";
 import HomeBeforeBF from "./pageDir/HomeBeforeBF";
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import ApplyGroup from "./pageDir/ApplyGroup";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar isLogin={isLogin} setIsLogin={setIsLogin}></NavBar>
       <Routes>
         <Route path="/" element={<HomeBF />}></Route>
         <Route path="/beforeBF" element={<HomeBeforeBF />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route
+          path="/login"
+          element={<Login setIsLogin={setIsLogin} />}
+        ></Route>
         <Route path="/applyGroup" element={<ApplyGroup />}></Route>
       </Routes>
     </div>
