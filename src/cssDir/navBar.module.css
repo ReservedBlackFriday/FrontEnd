@@ -106,9 +106,12 @@
 }
 .imgBox {
     width: 60px;
-    height: 80px;
+    height: 60px;
     margin: 0px auto;
-    position: relative
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .noMessageHoverImg {
     position: absolute;

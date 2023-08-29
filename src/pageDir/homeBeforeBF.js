@@ -6,6 +6,7 @@ const HomeBeforeBF = (props) => {
   return (
     <>
       <div className={style.entireContainer}>
+        <button className={style.bfApplyBtn}>블랙프라이데이 구매 날짜 신청하러 가기</button>
         <div>
           <h1>오늘의 상품</h1>
         </div>
