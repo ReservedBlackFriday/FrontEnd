@@ -2,12 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import NavBar from "./pageDir/NavBar";
 import Login from "./pageDir/Login";
+import HomeBF from "./pageDir/HomeBF";
+import HomeBeforeBF from "./pageDir/HomeBeforeBF";
+import {Routes, Route} from 'react-router-dom';
+import ApplyGroup from './pageDir/ApplyGroup';
 
 function App() {
   return (
     <div>
       <NavBar></NavBar>
-      <Login></Login>
+      <Routes>
+        <Route path="/" element={<HomeBF/>}></Route>
+        <Route path="/beforeBF" element={<HomeBeforeBF/>}></Route>
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/applyGroup" element={<ApplyGroup/>}></Route>
+      </Routes>
     </div>
     // <div className="App">
     //   <header className="App-header">

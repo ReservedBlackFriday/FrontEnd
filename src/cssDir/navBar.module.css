@@ -88,7 +88,7 @@
     text-decoration: none;
     cursor: pointer;
 }
-.navListItemText:last-child{
+.lastNavListItemText{
     margin-right: 15px;
 }
 .navListItemText span{
@@ -100,7 +100,7 @@
     color: rgb(64, 73, 197);
 }
 .imgBox {
-    width: 80px;
+    width: 60px;
     height: 80px;
     margin: 0px auto;
     position: relative

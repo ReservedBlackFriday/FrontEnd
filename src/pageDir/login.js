@@ -1,5 +1,5 @@
 import styles from '../cssDir/login.module.css';
-const Login = () =>{
+const Login = (props) =>{
     return(
         <div className={styles.page}>
             <div className={styles.loginPage}>

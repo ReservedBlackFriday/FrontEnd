@@ -1,20 +1,20 @@
-//import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 import styles from '../cssDir/navBar.module.css';
 import noMessage from '../imgs/noMessage.png';
 import noMessageHover from '../imgs/noMessage_hover.png';
 import message from '../imgs/message.png';
 import React, {useState} from 'react';
 
-const NavBar = () => {
+const NavBar = (props) => {
     const [isLogin, setIsLogin] = useState(true);
-    // const movePage = useNavigate()
+    const movePage = useNavigate()
 
-    // const goHome = () => {
-    //     movePage('/')
-    // }
+    const goHome = () => {
+        movePage('/')
+    }
     return(
         <div className={styles.navBar}>
-            <div className={styles.logoDiv}>
+            <div className={styles.logoDiv} onClick={goHome}>
                 <h1 className={styles.logo}>logo</h1>
             </div>
             <div className={styles.leftDiv}>
@@ -40,8 +40,8 @@ const NavBar = () => {
                     {isLogin ? <li className={styles.navListItem}>
                         <a className={styles.navListItemText}>
                             <div className={styles.imgBox}>
-                                <img src={noMessage} width={80} height={80} className={styles.noMessageImg}></img>
-                                <img src={noMessageHover} width={80} height={80} className={styles.noMessageHoverImg}></img>
+                                <img src={noMessage} width={60} height={80} className={styles.noMessageImg}></img>
+                                <img src={noMessageHover} width={60} height={80} className={styles.noMessageHoverImg}></img>
                             </div>
                         </a>
                     </li> : <></>}
@@ -64,7 +64,7 @@ const NavBar = () => {
                         </a>
                     </li> */}
                     <li className={styles.navListItem}>
-                        <a className={styles.navListItemText}>
+                        <a className={`${styles.navListItemText} ${styles.lastNavListItemText}`}>
                             {isLogin ? <span>logout</span> : <span>login</span>}
                         </a>
                     </li>
