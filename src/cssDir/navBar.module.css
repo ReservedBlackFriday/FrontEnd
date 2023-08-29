@@ -26,6 +26,10 @@
     font-size: 30px;
     display: flex;
     align-items: center;
+    color: rgb(109,162, 233);
+}
+.logo:hover{
+    color: rgb(64, 73, 197);
 }
 .leftDiv{
     display: flex;
