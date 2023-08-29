@@ -2,11 +2,14 @@ import {useNavigate, Link} from 'react-router-dom'
 import styles from '../cssDir/navBar.module.css';
 import noMessage from '../imgs/noMessage.png';
 import noMessageHover from '../imgs/noMessage_hover.png';
+import Message from '../imgs/message.png';
+import MessageHover from '../imgs/message_hover.png';
 import message from '../imgs/message.png';
 import React, {useEffect, useState} from 'react';
 
 const NavBar = (props) => {
     const [isLogin, setIsLogin] = useState(false);
+    const [messageList, setMessageList] = useState([4]);
     const movePage = useNavigate()
 
     useEffect(() => {
@@ -15,6 +18,9 @@ const NavBar = (props) => {
     
     const goHome = () => {
         movePage('/')
+    }
+    const goMessage = () => {
+        movePage('/message')
     }
     const goLogin = () =>{
         if(isLogin){
@@ -51,10 +57,17 @@ const NavBar = (props) => {
                 <ul className={styles.navList}>
                     {isLogin ? <li className={styles.navListItem}>
                         <div className={styles.navListItemText}>
-                            <div className={styles.imgBox}>
-                                <img src={noMessage} width={60} height={80} className={styles.noMessageImg}></img>
-                                <img src={noMessageHover} width={60} height={80} className={styles.noMessageHoverImg}></img>
-                            </div>
+                                {messageList&&Array.isArray(messageList)&&messageList.length > 0 ? 
+                                <div className={styles.imgBox} onClick={goMessage}>
+                                <img src={Message} width={60} height={60} className={styles.noMessageImg}></img>
+                                <img src={MessageHover} width={60} height={60} className={styles.noMessageHoverImg}></img>
+                                </div>
+                                :
+                                <div className={styles.imgBox} onClick={goMessage}>
+                                <img src={noMessage} width={60} height={60} className={styles.noMessageImg}></img>
+                                <img src={noMessageHover} width={60} height={60} className={styles.noMessageHoverImg}></img>
+                                </div>
+                                }
                         </div>
                     </li> : <></>}
                     {isLogin ? <li className={styles.navListItem}>
