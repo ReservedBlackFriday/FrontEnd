@@ -81,7 +81,7 @@ const SignUp = (props) => {
                 </div>
                 <div className={styles.loginBtnWrap}>
                   <button className={styles.doSignUpBtn} onClick={signup}>
-                    SignIn
+                    SignUp
                   </button>
                 </div>
               </form>

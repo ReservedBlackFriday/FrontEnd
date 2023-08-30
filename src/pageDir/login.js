@@ -18,7 +18,7 @@ const Login = (props) => {
     setPw(value);
   };
   const goHome = () => {
-    movePage("/");
+    movePage("/beforeBF");
   };
   const goSignUp = () => {
     movePage("/signUp");

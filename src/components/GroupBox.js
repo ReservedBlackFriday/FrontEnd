@@ -9,6 +9,9 @@ const GroupBox = (props) =>{
     const goLogin =() => {
         movePage("/login")
     }
+    const goHome = () =>{
+        movePage("/beforeBF")
+    }
 
     const applyGroup = (e) => {
         e.preventDefault()
@@ -31,6 +34,7 @@ const GroupBox = (props) =>{
             if (response.status === 200) {
                 console.log('신청 성공')
                 alert(props.group[0] + '그룹에\n신청 성공')
+                goHome()
             } else {
                 console.log('신청 실패')
                 alert('신청 실패')

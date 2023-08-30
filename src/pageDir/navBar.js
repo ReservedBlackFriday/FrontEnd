@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 
 const NavBar = (props) => {
   const [isLogin, setIsLogin] = useState(false);
-  const [messageList, setMessageList] = useState([4]);
+  const [messageList, setMessageList] = useState([]);
   const movePage = useNavigate();
 
   useEffect(() => {
