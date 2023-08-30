@@ -10,7 +10,7 @@ const GroupBox = (props) =>{
         movePage("/login")
     }
     const goHome = () =>{
-        movePage("/beforeBF")
+        movePage("/")
     }
 
     const applyGroup = (e) => {

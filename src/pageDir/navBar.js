@@ -17,7 +17,7 @@ const NavBar = (props) => {
   }, [props.isLogin]);
 
   const goHome = () => {
-    movePage("/");
+    movePage("/BF");
   };
   const goMessage = () => {
     movePage("/message");

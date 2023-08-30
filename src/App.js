@@ -29,15 +29,15 @@ function App() {
     <div>
       <NavBar isLogin={isLogin} setIsLogin={setIsLogin}></NavBar>
       <Routes>
-        <Route path="/" element={<HomeBF />}></Route>
-        <Route path="/beforeBF" element={<HomeBeforeBF />}></Route>
+        <Route path="/BF" element={<HomeBF />}></Route>
+        <Route path="/" element={<HomeBeforeBF />}></Route>
         <Route
           path="/login"
           element={<Login setIsLogin={setIsLogin} />}
         ></Route>
         <Route path="/signUp" element={<SignUp />}></Route>
         <Route path="/applyGroup" element={<ApplyGroup />}></Route>
-        <Route path="/productDetail/:id" element={<BFProductDetail />}></Route>
+        <Route path="/BF/productDetail/:id" element={<BFProductDetail />}></Route>
       </Routes>
     </div>
     // <div className="App">
